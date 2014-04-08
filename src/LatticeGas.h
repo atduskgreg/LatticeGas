@@ -25,8 +25,8 @@ private:
     void processTransits();
     void updateImage();
     // double-buffered lattice
-    unsigned char lattice1[1024*768];
-    unsigned char lattice2[1024*768];
+    unsigned char lattice1[500*500];
+    unsigned char lattice2[500*500];
     unsigned char collisionTable1[64]  = {
         0,1,2,3,4,5,
         6,7,8,36,10,

@@ -12,8 +12,6 @@ LatticeGas::LatticeGas(){}
 
 LatticeGas::LatticeGas(ofPixels& pix) {
     this->pix = &pix;
-//    lattice1 = new unsigned char[pix.getWidth()*pix.getHeight()];
-//    lattice2 = new unsigned char[pix.getWidth()*pix.getHeight()];
 }
 
 void LatticeGas::setStartingState(int squareSize, bool addNoise){
@@ -81,17 +79,17 @@ void LatticeGas::processTransits(){
         }
     }
     
-    //boundary conditions
-     size = pix->getWidth();
+    // deal with edge glitches
     for(int i = 1; i < size-1;i+=2){
-        // top
+       
+       // top
         lattice1[i] = 0;
         lattice1[i+1] = 0;
         
         // bottom
         lattice1[i+size * (size-1)]= 0;
         lattice1[i+1 +size*(size-1)] = 0;
-      }
+    }
     
     for(int j = 1; j< size-1; j++){
         // left
